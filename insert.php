@@ -3,17 +3,21 @@ include("dbconn.php");
 /*** For Sign up ***/
 if(isset($_POST['signup']))
 {
+	$signupAlert	=	false;
 	$email			=	$_POST['email'];
 	$selectQ		=	mysqli_query($conn,"SELECT * FROM user WHERE email='$email'");
 	$numOfRowExist	=	mysqli_num_rows($selectQ);
+	$existAlert		=	false;
 	if($numOfRowExist > 0)
 	{
-		header('location:welcome.php');
+		$existAlert		=	true;
+		header("location:welcome.php?existAlert='".$existAlert."'");
 	}
 	else
 	{
-		$inswertQuer	=	mysqli_query($conn,"INSERT INTO `user`(`name`, `email`, `password`) VALUES ('".$_POST['name']."','".$_POST['email']."','".$_POST['password']."')");
-		header('location:welcome.php');
+		$signupAlert	=	true;
+		$inswertQuer	=	mysqli_query($conn,"INSERT INTO `user`(`name`, `image`, `email`, `password`) VALUES ('".$_POST['name']."','".$_POST['image']."','".$_POST['email']."','".$_POST['password']."')");
+		header("location:welcome.php?signupAlert='".$signupAlert."'");
 	}
 }
 /*** For Sign in ***/
@@ -28,13 +32,21 @@ if(isset($_POST['signin']))
 		$name	=	$getDatas['name'];
 	}
 	$num		=	mysqli_num_rows($getData);
-	if($num	==	1) //check for email already exist
+	$signinAlert=	false;
+	$showAlert	=	false;
+	if($num	==	1)
 	{
 		session_start();
+		$signinAlert		=	true;
 		$_SESSION['signin']	=	true;
 		$_SESSION['email']	=	$email;
 		$_SESSION['name']	=	$name;
-		header("location:welcome.php");
+		header("location:welcome.php?signinAlert='".$signinAlert."'");
+	}
+	else
+	{
+		$showAlert	=	true;
+		header("location:welcome.php?showAlert='".$showAlert."'");
 	}
 }
 /*** For Insertion of data ***/
