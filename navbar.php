@@ -1,12 +1,16 @@
 
 <!---NavBar For books crud--->
 <nav class="navbar navbar-expand-lg bg-light blue">
-    <div class="container-fluid"><a href="#"><img class="navbar-brand" height="55px;" width="130px;" src="book-publishing-process.jpeg" href="#"></a>
+    <div class="container-fluid"><a href="welcome.php"><img class="navbar-brand" height="55px;" width="130px;" src="book-publishing-process.jpeg" href="#"></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"> <a id="home" class="nav-link active" aria-current="page" href="welcome.php">Home</a> </li>
                 <li class="nav-item"> <a id="createpost" class="nav-link" href="welcome.php?loadform=loadform" >Create New Post</a> </li>
-                <li class="nav-item ml-auto"> <a id="signoutbtn" onClick="hide()" class="nav-link active" aria-current="page" href="signout.php">Sign Out</a> </li>
+                <li class="nav-item ml-auto"> <a id="signoutbtn" class="nav-link active" aria-current="page" href="signout.php">Sign Out</a> </li>
+               
+               <script>
+               
+               </script>
                 <!-- Sign in Modal -->
                 <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
