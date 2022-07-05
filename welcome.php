@@ -16,8 +16,20 @@ session_start();
     <title>Books Publisher</title>
   </head>
   <body>
-   <?php   
+     <?php
    require 'navbar.php';
+   if(isset($_SESSION['signin']))
+   {
+   ?>
+	<script>
+    function hide()
+    {
+        $("#home").hide();
+        $("#createpost").hide();
+    }
+    </script>
+    <?php
+   }
    if(isset($_GET['existAlert'])	==	1)
    {
 	   echo '<div id="alertMsg" class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -64,6 +76,7 @@ session_start();
 		</div>';
    }
    $selectQ	=	mysqli_query($conn,"SELECT * FROM books");
+  // if($_SESSION['signin']	==	1)
    if(isset($_GET['pkbooksid']))
    {
 	   $pkbooksid	=	$_GET['pkbooksid'];
@@ -155,6 +168,7 @@ session_start();
 			else
 			{
 				?>
+                
 				<div class="container">
 					<form method="post" action="insert.php">
 						<div class="container">
@@ -188,6 +202,7 @@ session_start();
 	   else
 	   {
 			?>
+            
 			<div class="container">
 			<div class="row">
 			<?php foreach($selectQ as $select){ ?>
@@ -224,7 +239,7 @@ session_start();
 		//$("#alertMsg").show().delay(5000).fadeOut();
 		$("#alertMsg").show();
 		setTimeout(function() { $("#alertMsg").hide(); }, 3000);
-		function hide()
+		/*function hide()
 		{
 			
 			var signoutAlert	=	$('#signoutalertbtn').val();
@@ -233,7 +248,7 @@ session_start();
 			{
 				$("#home").hide();
 			}
-		}
+		}*/
 		//hide();
 	</script>
 </html>
