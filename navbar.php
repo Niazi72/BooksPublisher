@@ -8,9 +8,6 @@
                 <li class="nav-item"> <a id="createpost" class="nav-link" href="welcome.php?loadform=loadform" >Create New Post</a> </li>
                 <li class="nav-item ml-auto"> <a id="signoutbtn" class="nav-link active" aria-current="page" href="signout.php">Sign Out</a> </li>
                
-               <script>
-               
-               </script>
                 <!-- Sign in Modal -->
                 <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

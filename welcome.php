@@ -7,6 +7,7 @@ session_start();
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -21,7 +22,6 @@ session_start();
 	   if(!isset($_SESSION['signin']) || $_SESSION['signin']!=true)
 	   {
 		   ?>
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
            <script>
 		    $("#signoutbtn").ready(function () {
 				$("#home").hide();
